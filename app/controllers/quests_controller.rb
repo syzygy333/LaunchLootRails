@@ -9,6 +9,7 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
+    @quest.user = current_user
     if @quest.save
       flash[:success] = "It shall be so."
       redirect_to quests_path

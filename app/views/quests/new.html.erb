@@ -1,0 +1,26 @@
+<h1>Start a Quest!</h1>
+  <%= form_for @quest do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_date %>
+      <%= f.text_field :end_date %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Embark!", class: "tiny button radius" %>
+    </div>
+  <%- end -%>
