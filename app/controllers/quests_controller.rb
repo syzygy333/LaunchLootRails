@@ -29,6 +29,26 @@ class QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
   end
 
+  def edit
+    @quest = Quest.find(params[:id])
+  end
+
+  def update
+    @quest = Quest.find(params[:id])
+    if current_user != nil
+      if @quest.update(quest_params)
+        flash[:success] = "Quest updated."
+        redirect_to quest_path(@quest)
+      else
+        flash[:alert] = @quest.errors.full_messages.join(".  ")
+        render :edit
+      end
+    else
+      flash[:alert] = "You may not edit this quest."
+      redirect_to quest_path(@quest)
+    end
+  end
+
   private
 
   def quest_params
