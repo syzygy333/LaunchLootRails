@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user edits a new quest', %{
+feature 'user edits a quest', %{
   As a signed up user
   I want to edit a quest
   So that it has the correct information
