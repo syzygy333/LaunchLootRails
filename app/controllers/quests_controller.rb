@@ -9,12 +9,17 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
+    @engagement = Engagement.new
     if current_user == nil
       flash[:alert] = "You must be signed in to do that."
       render :new
     elsif @quest.save
       flash[:success] = "It shall be so."
       redirect_to quests_path
+      @engagement.quest_id = @quest.id
+      @engagement.user_id = current_user.id
+      @engagement.save
+    binding.pry
     else
       flash[:alert] = @quest.errors.full_messages.join(".  ")
       render :new
