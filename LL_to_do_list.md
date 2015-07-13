@@ -4,7 +4,7 @@ done
 • setup/update factories
 • start tests for quest index, create
 • find a way to do dropdown date selector
+• complete quests actions (update, destroy)
 
 yet to be done
-• complete quests actions (update, destroy)
 • test for new actions

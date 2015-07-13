@@ -35,16 +35,27 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
-    if current_user != nil
-      if @quest.update(quest_params)
-        flash[:success] = "Quest updated."
-        redirect_to quest_path(@quest)
-      else
-        flash[:alert] = @quest.errors.full_messages.join(".  ")
-        render :edit
-      end
-    else
+    if current_user && current_user == @quest.users.first
+      @quest.update(quest_params)
+      flash[:success] = "Quest updated."
+      redirect_to quest_path(@quest)
+    elsif current_user == nil || current_user != @quest.users.first
       flash[:alert] = "You may not edit this quest."
+      redirect_to quest_path(@quest)
+    else
+      flash[:alert] = @quest.errors.full_messages.join(".  ")
+      render :edit
+    end
+  end
+
+  def destroy
+    @quest = Quest.find(params[:id])
+    if current_user && current_user == @quest.users.first
+      quest.destroy
+      flash[:success] = "Quest destroyed."
+      redirect_to quests_path
+    else
+      flash[:alert] = "You may not destroy that quest."
       redirect_to quest_path(@quest)
     end
   end

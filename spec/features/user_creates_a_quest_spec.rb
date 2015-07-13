@@ -39,14 +39,13 @@ feature 'user creates a new quest', %{
     click_button 'Log in'
     visit new_quest_path
 
-    fill_in "Title", with: "The Best Quest"
     fill_in "Description", with: "In which we go to the mountain
       and return with fantastic stuff"
 
     click_button "Embark!"
 
     expect(page).to have_content("Start a Quest!")
-    expect(page).to have_content("Start date can't be blank.")
+    expect(page).to have_content("Title can't be blank")
   end
 
   scenario "don't sign in and provide valid information" do
