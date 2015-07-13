@@ -8,7 +8,7 @@ feature 'user edits a quest', %{
   scenario "sign in and provide valid information" do
     user = FactoryGirl.create(:user)
     quest = FactoryGirl.create(:quest)
-    engagement = Engagement.create!(quest: quest, user: user)
+    Engagement.create!(quest: quest, user: user)
 
     visit new_user_session_path
 
@@ -31,7 +31,7 @@ feature 'user edits a quest', %{
   scenario "sign in and provide invalid information" do
     user = FactoryGirl.create(:user)
     quest = FactoryGirl.create(:quest)
-    engagement = Engagement.create!(quest: quest, user: user)
+    Engagement.create!(quest: quest, user: user)
 
     visit new_user_session_path
 
