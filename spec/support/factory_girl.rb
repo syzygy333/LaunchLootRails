@@ -9,4 +9,10 @@ FactoryGirl.define do
     last_name "Schlob"
   end
 
+  factory :quest do
+    title "Quest #1"
+    description "Description for Quest #1"
+    start_date "20150801"
+    end_date "20150815"
+  end
 end

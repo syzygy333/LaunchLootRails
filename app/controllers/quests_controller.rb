@@ -11,7 +11,7 @@ class QuestsController < ApplicationController
     @quest = Quest.new(quest_params)
     @engagement = Engagement.new
     if current_user == nil
-      flash[:alert] = "You must be signed in to do that."
+      flash[:alert] = "You must be signed in to create a quest."
       render :new
     elsif @quest.save
       flash[:success] = "It shall be so."
@@ -27,6 +27,37 @@ class QuestsController < ApplicationController
 
   def show
     @quest = Quest.find(params[:id])
+  end
+
+  def edit
+    @quest = Quest.find(params[:id])
+  end
+
+  def update
+    @quest = Quest.find(params[:id])
+    if current_user && current_user == @quest.users.first
+      @quest.update(quest_params)
+      flash[:success] = "Quest updated."
+      redirect_to quest_path(@quest)
+    elsif current_user == nil || current_user != @quest.users.first
+      flash[:alert] = "You may not edit this quest."
+      redirect_to quest_path(@quest)
+    else
+      flash[:alert] = @quest.errors.full_messages.join(".  ")
+      render :edit
+    end
+  end
+
+  def destroy
+    @quest = Quest.find(params[:id])
+    if current_user && current_user == @quest.users.first
+      @quest.destroy
+      flash[:success] = "Quest destroyed."
+      redirect_to quests_path
+    else
+      flash[:alert] = "You may not destroy this quest."
+      redirect_to quest_path(@quest)
+    end
   end
 
   private

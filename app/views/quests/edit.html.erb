@@ -1,4 +1,4 @@
-<h1>Start a Quest!</h1>
+<h1>Edit your Quest!</h1>
   <%= form_for @quest do |f| %>
     <div class="field">
       <%= f.label :title %>
@@ -11,18 +11,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date, value: "#{Date.today}",
-        min: Date.today %>
-    </div>
-
-    <div class="field">
       <%= f.label :end_date %>
       <%= f.date_field :end_date, value: "#{Date.today + 7}",
         min: Date.today + 7 %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Embark!", class: "tiny button radius" %>
+      <%= f.submit "Change it!", class: "tiny button radius" %>
     </div>
   <%- end -%>
