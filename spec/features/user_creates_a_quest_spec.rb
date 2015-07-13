@@ -46,4 +46,18 @@ feature 'user creates a new quest', %Q{
     expect(page).to have_content("Start a Quest!")
     expect(page).to have_content("Start date can't be blank.")
   end
+
+  scenario "don't sign in and provide valid information" do
+    visit new_quest_path
+
+    fill_in "Title", with: "The Best Quest"
+    fill_in "Description", with: "In which we go to the mountain and return with fantastic stuff"
+    fill_in "Start date", with: "20150801"
+    fill_in "End date", with: "20150814"
+
+    click_button "Embark!"
+
+    expect(page).to have_content("You must be signed in to do that.")
+    expect(page).to have_content("Start a Quest!")
+  end
 end

@@ -9,7 +9,10 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
-    if @quest.save
+    if current_user == nil
+      flash[:alert] = "You must be signed in to do that."
+      render :new
+    elsif @quest.save
       flash[:success] = "It shall be so."
       redirect_to quests_path
     else
