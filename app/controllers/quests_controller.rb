@@ -19,7 +19,6 @@ class QuestsController < ApplicationController
       @engagement.quest_id = @quest.id
       @engagement.user_id = current_user.id
       @engagement.save
-    binding.pry
     else
       flash[:alert] = @quest.errors.full_messages.join(".  ")
       render :new
