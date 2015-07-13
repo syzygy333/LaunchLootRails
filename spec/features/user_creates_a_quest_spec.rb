@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user creates a new quest', %Q{
+feature 'user creates a new quest', %{
   As a signed up user
   I want to create a quest
   So that my friends can collect items
@@ -17,7 +17,8 @@ feature 'user creates a new quest', %Q{
     visit new_quest_path
 
     fill_in "Title", with: "The Best Quest"
-    fill_in "Description", with: "In which we go to the mountain and return with fantastic stuff"
+    fill_in "Description", with: "In which we go to the mountain
+      and return with fantastic stuff"
     fill_in "Start date", with: "20150801"
     fill_in "End date", with: "20150814"
 
@@ -39,7 +40,8 @@ feature 'user creates a new quest', %Q{
     visit new_quest_path
 
     fill_in "Title", with: "The Best Quest"
-    fill_in "Description", with: "In which we go to the mountain and return with fantastic stuff"
+    fill_in "Description", with: "In which we go to the mountain
+      and return with fantastic stuff"
 
     click_button "Embark!"
 
@@ -51,7 +53,8 @@ feature 'user creates a new quest', %Q{
     visit new_quest_path
 
     fill_in "Title", with: "The Best Quest"
-    fill_in "Description", with: "In which we go to the mountain and return with fantastic stuff"
+    fill_in "Description", with: "In which we go to the mountain
+      and return with fantastic stuff"
     fill_in "Start date", with: "20150801"
     fill_in "End date", with: "20150814"
 
