@@ -7,9 +7,9 @@ feature 'user views all quests', %{
 } do
 
   # Acceptance criteria:
-  # [ ] User can view a list of active quests
+  # [X] User can view a list of active quests
 
-  scenario "sign in and provide valid information" do
+  scenario "view quests index page" do
     quest = FactoryGirl.create(:quest)
 
     visit quests_path
