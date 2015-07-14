@@ -5,6 +5,12 @@ feature 'user edits a quest', %{
   I want to edit a quest
   So that it has the correct information
 } do
+
+  # Acceptance criteria:
+  # [X] User can rename quest
+  # [X] User can change the quest duration
+  # [ ] User can remove people from quest team
+
   scenario "sign in and provide valid information" do
     user = FactoryGirl.create(:user)
     quest = FactoryGirl.create(:quest)

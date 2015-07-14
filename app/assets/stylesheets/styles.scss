@@ -1,3 +1,8 @@
+$junk_color: #6e6e6e;
+$heirloom_color: #04b404;
+$antiquity_color: #08298a;
+$relic_color: #ff8000;
+
 body {
   background-image: image-url("landscape1.jpg");
   background-attachment: fixed;
@@ -26,4 +31,25 @@ h1 {
   font-weight: bolder;
   line-height: 48pt;
   text-align: right;
+}
+
+#key {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#junk {
+  color: $junk_color;
+}
+
+#heirloom {
+  color: $heirloom_color;
+}
+
+#antiquity {
+  color: $antiquity_color;
+}
+
+#relic {
+  color: $relic_color;
 }

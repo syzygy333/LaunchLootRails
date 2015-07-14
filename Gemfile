@@ -15,6 +15,8 @@ gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'puma'
 gem 'random-word'
+gem 'kaminari'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'

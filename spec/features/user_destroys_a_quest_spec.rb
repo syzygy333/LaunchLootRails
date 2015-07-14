@@ -4,6 +4,10 @@ feature 'user destroys a quest', %{
   As a signed up user
   I want to delete a quest
 } do
+
+  # Acceptance criteria:
+  # [X] User can delete a quest
+
   scenario "sign in and provide valid information" do
     user = FactoryGirl.create(:user)
     quest = FactoryGirl.create(:quest)
