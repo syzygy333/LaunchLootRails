@@ -14,6 +14,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'puma'
+gem 'random-word'
 
 group :development, :test do
   gem 'byebug'
