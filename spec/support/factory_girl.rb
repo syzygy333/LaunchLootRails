@@ -10,9 +10,9 @@ FactoryGirl.define do
   end
 
   factory :quest do
-    title "Quest #1"
-    description "Description for Quest #1"
-    start_date "20150801"
-    end_date "20150815"
+    title { Faker::Lorem.words(4).join(" ").titleize }
+    description { Faker::Lorem.sentence }
+    start_date { Date.today }
+    end_date { Faker::Date.forward(10) }
   end
 end

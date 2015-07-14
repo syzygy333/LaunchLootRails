@@ -5,6 +5,11 @@ feature 'user creates a new quest', %{
   I want to create a quest
   So that my friends can collect items
 } do
+
+  # Acceptance criteria:
+  # [X] User can create a quest
+  # [ ] User can invite other users to join quest team
+
   scenario "sign in and provide valid information" do
     user = FactoryGirl.create(:user)
 
