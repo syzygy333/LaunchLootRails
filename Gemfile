@@ -14,6 +14,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'puma'
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem 'byebug'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'pry-rails'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
