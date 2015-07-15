@@ -1,20 +1,28 @@
 <h1>All the Items</h1>
-<div id="key">
-  <p class="left">Name</p>
-  <p class="right">Rarity | Value</p>
-</div><br /><br />
-<% @items.each do |item| %>
-  <div class="panel">
-    <% if item.rarity == "ordinary" %>
-      <p class="left" id="ordinary"><b><%= item.name %></p>
+<table>
+  <thead>
+    <tr>
+      <th width="700"><%= sortable "name" %></th>
+      <th width="100" class="text-center"><%= sortable "rarity" %></th>
+      <th width="100" class="text-center"><%= sortable "value" %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |item| %>
+  <% if item.rarity == "ordinary" %>
+    <tr>
+      <td id="ordinary"><b><%= item.name %><b></td>
     <% elsif item.rarity == "heirloom" %>
-      <p class="left" id="heirloom"><b><%= item.name %></p>
+      <td id="heirloom"><b><%= item.name %></b></td>
     <% elsif item.rarity == "antiquity" %>
-      <p class="left" id="antiquity"><b><%= item.name %></p>
+      <td id="antiquity"><b><%= item.name %></b></td>
     <% else %>
-      <p class="left" id="relic"><b><%= item.name %></p>
+      <td id="relic"><b><%= item.name %></b></td>
     <% end %>
-    <p class="right"><%= item.rarity.capitalize %> | <%= item.value %></p><br />
-  </div>
-<% end %>
+      <td class="text-center"><%= item.rarity.capitalize %></td>
+      <td class="text-center"><%= item.value %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= paginate @items %><br />

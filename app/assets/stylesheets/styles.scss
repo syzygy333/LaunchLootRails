@@ -38,6 +38,14 @@ h1 {
   margin-right: 20px;
 }
 
+th .asc:after {
+  content: "  ⬆️";
+}
+
+th .desc:after {
+  content: "  ⬇️";
+}
+
 #ordinary {
   color: $junk_color;
 }
