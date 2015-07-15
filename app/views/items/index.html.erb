@@ -5,8 +5,8 @@
 </div><br /><br />
 <% @items.each do |item| %>
   <div class="panel">
-    <% if item.rarity == "junk" %>
-      <p class="left" id="junk"><b><%= item.name %></p>
+    <% if item.rarity == "ordinary" %>
+      <p class="left" id="ordinary"><b><%= item.name %></p>
     <% elsif item.rarity == "heirloom" %>
       <p class="left" id="heirloom"><b><%= item.name %></p>
     <% elsif item.rarity == "antiquity" %>
