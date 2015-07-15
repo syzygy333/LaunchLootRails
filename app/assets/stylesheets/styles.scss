@@ -2,6 +2,8 @@ $junk_color: #6e6e6e;
 $heirloom_color: #04b404;
 $antiquity_color: #08298a;
 $relic_color: #ff8000;
+$find_panel_bg: #d8d8d8;
+$find_panel_border: #a4a4a4;
 
 body {
   background-image: image-url("landscape1.jpg");
@@ -60,4 +62,14 @@ th .desc:after {
 
 #relic {
   color: $relic_color;
+}
+
+.find-panel {
+  background-color: $find_panel_bg;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $find_panel_border;
+  margin-top: -1px;
+  font-size: .8em;
 }

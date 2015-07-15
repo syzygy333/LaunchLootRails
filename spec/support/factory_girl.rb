@@ -5,8 +5,8 @@ FactoryGirl.define do
     sequence(:email) {|n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
-    first_name "Bob"
-    last_name "Schlob"
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
   end
 
   factory :quest do

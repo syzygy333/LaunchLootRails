@@ -7,5 +7,20 @@
   </div>
   <%= @quest.description %><br />
   <p>Quest begins: <%= @quest.start_date %> | Quest ends: <%= @quest.end_date %></p>
-  <p>List of quest members that links to their profiles</p>
+  <% @finds.each do |find| %>
+  <div class="find-panel">
+    <%= find.user.first_name %> <%= find.user.last_name %> found the
+    <% if find.item.rarity == "ordinary" %>
+      <b id="ordinary"><%= find.item.name %></b>
+    <% elsif find.item.rarity == "heirloom" %>
+      <b id="heirloom"><%= find.item.name %></b>
+    <% elsif find.item.rarity == "antiquity" %>
+      <b id="antiquity"><%= find.item.name %></b>
+    <% else %>
+      <b id="relic"><%= find.item.name %></b>
+    <% end %>
+    <i class="right"><%= find.created_at.to_date %>,
+      <%= find.created_at.strftime("%I:%M%p") %></i>
+  </div>
+  <% end %>
 </div>

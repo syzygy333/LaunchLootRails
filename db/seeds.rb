@@ -1,4 +1,3 @@
-require "factory_girl"
 require 'csv'
 
 descriptor1 = CSV.read("app/assets/csv/descriptor1.csv")
@@ -28,11 +27,3 @@ end
 # 25.times do
 #   Item.create(name: relic_name, rarity: relic, value: 1000 )
 # end
-
-Dir[Rails.root.join("spec/support/*.rb")].each {|f| require f}
-
-5.times do
-  user = FactoryGirl.create(:user)
-  quest = FactoryGirl.create(:quest)
-  Engagement.create(quest: quest, user: user)
-end
