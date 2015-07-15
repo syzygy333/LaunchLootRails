@@ -267,3 +267,8 @@ Devise.setup do |config|
   require "omniauth-google-oauth2"
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
 end
+
+# tried this to fix SSL issue, did nothing
+# require "omniauth-google-oauth2"
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+# config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
