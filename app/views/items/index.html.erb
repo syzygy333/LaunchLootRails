@@ -9,8 +9,8 @@
   </thead>
   <tbody>
   <% @items.each do |item| %>
-  <% if item.rarity == "ordinary" %>
     <tr>
+    <% if item.rarity == "ordinary" %>
       <td id="ordinary"><b><%= item.name %><b></td>
     <% elsif item.rarity == "heirloom" %>
       <td id="heirloom"><b><%= item.name %></b></td>

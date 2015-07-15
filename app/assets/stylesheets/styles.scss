@@ -1,7 +1,9 @@
-$junk_color: #6e6e6e;
-$heirloom_color: #04b404;
-$antiquity_color: #08298a;
-$relic_color: #ff8000;
+$junk-color: #6e6e6e;
+$heirloom-color: #04b404;
+$antiquity-color: #08298a;
+$relic-color: #ff8000;
+$find-panel-bg: #d8d8d8;
+$find-panel-border: #a4a4a4;
 
 body {
   background-image: image-url("landscape1.jpg");
@@ -47,17 +49,27 @@ th .desc:after {
 }
 
 #ordinary {
-  color: $junk_color;
+  color: $junk-color;
 }
 
 #heirloom {
-  color: $heirloom_color;
+  color: $heirloom-color;
 }
 
 #antiquity {
-  color: $antiquity_color;
+  color: $antiquity-color;
 }
 
 #relic {
-  color: $relic_color;
+  color: $relic-color;
+}
+
+.find-panel {
+  background-color: $find-panel-bg;
+  border-color: $find-panel-border;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 0.8em;
+  margin-top: -1px;
+  padding: 10px;
 }

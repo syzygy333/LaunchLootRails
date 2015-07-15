@@ -27,7 +27,7 @@ class QuestsController < ApplicationController
 
   def show
     @quest = Quest.find(params[:id])
-    # @finds = Find.find(quest_id: @quest.id)
+    @finds = Find.where(quest_id: @quest.id)
   end
 
   def edit
