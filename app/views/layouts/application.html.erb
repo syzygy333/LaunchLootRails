@@ -7,14 +7,20 @@
 </head>
 <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">LaunchLoot</a></h1>
-      </li>
-    </ul>
+  <nav class="top-bar" data-topbar role="navigation"
+    data-options="is_hover: false">
 
     <section class="top-bar-section">
+      <ul class="left">
+        <li class="name has-dropdown">
+          <h1><a href="#">LaunchLoot</a></h1>
+          <ul class="dropdown">
+            <li><%= link_to 'Quests', quests_path %></li>
+            <li><%= link_to 'Items', items_path %></li>
+            <li><%= link_to 'Home', root_path %></li>
+          </ul>
+        </li>
+      </ul>
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
