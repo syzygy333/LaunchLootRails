@@ -1,37 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require "factory_girl"
+require 'csv'
 
-RandomWord.exclude_list << /.*_.*/
-
-def generate_item_name
-  "#{RandomWord.adjs.next} #{RandomWord.nouns.next} of #{RandomWord.nouns.next}".titleize
-end
-
-rarity_names = ["junk", "heirloom", "antiquity", "relic"]
-values = [100, 250, 500, 1000]
+descriptor1 = CSV.read("app/assets/csv/descriptor1.csv")
+ordinary = CSV.read("app/assets/csv/ordinary.csv")
+heirloom = CSV.read("app/assets/csv/heirloom.csv")
+antiquity = CSV.read("app/assets/csv/antiquity.csv")
+descriptor2 = CSV.read("app/assets/csv/descriptor2.csv")
 
 250.times do
-  Item.create!(name: generate_item_name, rarity: rarity_names[0], value: values[0])
+  Item.create(name: "#{descriptor1[0].sample.titleize}
+    #{ordinary[0].sample.titleize} of #{descriptor2[0].sample.titleize}",
+    rarity: "ordinary", value: 100)
 end
 
 150.times do
-  Item.create!(name: generate_item_name, rarity: rarity_names[1], value: values[1])
+  Item.create(name: "#{descriptor1[0].sample.titleize}
+    #{heirloom[0].sample.titleize} of #{descriptor2[0].sample.titleize}",
+    rarity: "heirloom", value: 250)
 end
 
 75.times do
-  Item.create!(name: generate_item_name, rarity: rarity_names[2], value: values[2])
+  Item.create(name: "#{descriptor1[0].sample.titleize}
+    #{antiquity[0].sample.titleize} of
+    #{descriptor2[0].sample.titleize}", rarity: "antiquity", value: 500)
 end
 
-25.times do
-  Item.create!(name: generate_item_name, rarity: rarity_names[3], value: values[3])
-end
+# 25.times do
+#   Item.create(name: relic_name, rarity: relic, value: 1000 )
+# end
 
 Dir[Rails.root.join("spec/support/*.rb")].each {|f| require f}
 
