@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :finds
   end
   resources :items, only: [:index]
+  resources :user, only: [:show]
 end
