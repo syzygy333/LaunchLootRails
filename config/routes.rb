@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :quests do
     resources :finds
+    resources :engagements, only: [:create, :destroy]
   end
   resources :items, only: [:index]
 end

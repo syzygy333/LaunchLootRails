@@ -1,9 +1,16 @@
 <h1><%= @quest.title %></h1>
 <div class="panel clearfix">
   <div class="stack button-group right">
-    <%= link_to "Edit Quest", edit_quest_path, class: "tiny button" %>
-    <%= link_to "Delete Quest", quest_path(@quest), method: :delete,
-      class: "tiny button alert" %>
+    <% if current_user && current_user == @quest.users.first %>
+      <%= link_to "Edit Quest", edit_quest_path, class: "tiny button" %>
+      <%= link_to "Delete Quest", quest_path(@quest), method: :delete,
+        class: "tiny button alert" %>
+    <% else %>
+      <%= link_to "Join Quest", quest_engagements_path(@quest),
+        method: :post, class: "tiny button success" %>
+      <%= link_to "Leave Quest", quest_engagement_path(@engagement),
+        method: :delete, class: "tiny button alert" %>
+    <% end %>
   </div>
   <%= @quest.description %><br />
   <p>Quest begins: <%= @quest.start_date %> | Quest ends: <%= @quest.end_date %></p>
