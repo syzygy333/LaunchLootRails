@@ -8,3 +8,6 @@
     </div>
   <% end %>
 <% end %>
+<%= link_to "Start a Quest!", new_quest_path,
+  class: "small button radius" %>
+<%= paginate @quests %><br />

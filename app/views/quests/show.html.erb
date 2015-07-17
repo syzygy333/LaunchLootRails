@@ -1,9 +1,21 @@
 <h1><%= @quest.title %></h1>
 <div class="panel clearfix">
   <div class="stack button-group right">
-    <%= link_to "Edit Quest", edit_quest_path, class: "tiny button" %>
-    <%= link_to "Delete Quest", quest_path(@quest), method: :delete,
-      class: "tiny button alert" %>
+    <!-- If leader/author of quest, show the edit/delete buttons -->
+    <% if current_user && current_user == @quest.users.first %>
+      <%= link_to "Edit Quest", edit_quest_path, class: "tiny button" %>
+      <%= link_to "Delete Quest", quest_path(@quest), method: :delete,
+        class: "tiny button alert" %>
+    <!-- If a member of the quest, show the leave quest button -->
+    <% elsif (current_user && current_user.engagements.first != nil && current_user.engagements.first.quest_id == @quest.id) || (current_user && current_user.engagements.last != nil && current_user.engagements.last.quest_id == @quest.id) %>
+      <%= link_to "Leave Quest",
+        quest_engagement_path(@quest, @engagement), method: :delete,
+        class: "tiny button alert" %>
+    <!-- If not a member or a leader, show the join quest button -->
+    <% else %>
+      <%= link_to "Join Quest", quest_engagements_path(@quest),
+        method: :post, class: "tiny button success" %>
+    <% end %>
   </div>
   <%= @quest.description %><br />
   <p>Quest begins: <%= @quest.start_date %> | Quest ends:

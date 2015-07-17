@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   def index
-    @quests = Quest.all
+    @quests = Quest.order(:created_at).page params[:page]
   end
 
   def new
@@ -28,6 +28,9 @@ class QuestsController < ApplicationController
   def show
     @quest = Quest.find(params[:id])
     @finds = Find.where(quest_id: @quest.id)
+    @engagement = Engagement.find_by(
+      user_id: current_user, quest_id: @quest.id
+    )
   end
 
   def edit
