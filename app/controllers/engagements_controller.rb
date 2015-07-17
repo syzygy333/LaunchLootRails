@@ -5,12 +5,7 @@ class EngagementsController < ApplicationController
   #
   def create
     @quest = Quest.find(params[:quest_id])
-    # if current_user doesnt already have engagement with quest
-    engagement = Engagement.where(user_id: current_user.id, quest_id: @quest.id)
-    @engagement = Engagement.new
-    @engagement.quest_id = @quest.id
-    @engagement.user_id = current_user.id
-    @engagement.save
+    @engagement = Engagement.new(quest_id: @quest.id, user_id: current_user.id)
     if @engagement.save
       flash[:success] = "You have joined the quest."
       redirect_to quests_path
@@ -22,8 +17,8 @@ class EngagementsController < ApplicationController
 
   def destroy
     @quest = Quest.find(params[:quest_id])
-    @engagement = Engagement.where(quest_id: @quest.id, user_id: current_user.id)
-    binding.pry
+    @engagement = Engagement.find_by(quest_id: @quest.id,
+      user_id: current_user.id)
     @engagement.destroy
     flash[:success] = "You have left the quest."
     redirect_to quests_path
