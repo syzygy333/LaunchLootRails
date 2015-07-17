@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   def index
-    @quests = Quest.order(:title).page params[:page]
+    @quests = Quest.order(:created_at).page params[:page]
   end
 
   def new
