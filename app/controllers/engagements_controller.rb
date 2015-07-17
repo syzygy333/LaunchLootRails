@@ -1,8 +1,4 @@
 class EngagementsController < ApplicationController
-  # def index
-  #   @engagements = Engagement.all
-  # end
-  #
   def create
     @quest = Quest.find(params[:quest_id])
     @engagement = Engagement.new(
