@@ -1,5 +1,5 @@
 <h1><%= @quest.title %></h1>
-<div class="panel clearfix">
+<div class="panel radius clearfix">
   <div class="stack button-group right">
     <!-- If leader/author of quest, show the edit/delete buttons -->
     <% if current_user && current_user == @quest.users.first %>
@@ -22,7 +22,7 @@
     <%= @quest.end_date %></p>
   <p>Quest Leader: <%= link_to "#{@quest.users.first.first_name} #{@quest.users.first.last_name}", user_path(@quest.users.first.id) %></p>
   <% @finds.each do |find| %>
-  <div class="find-panel">
+  <div class="find-panel radius">
     <%= find.user.first_name %> <%= find.user.last_name %> found the
     <% if find.item.rarity == "ordinary" %>
       <b id="ordinary"><%= find.item.name %></b>

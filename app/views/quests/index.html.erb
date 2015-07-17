@@ -1,7 +1,7 @@
 <h1>Active Quests</h1>
 <% @quests.each do |quest| %>
   <%= link_to quest_path(quest) do %>
-    <div class="panel">
+    <div class="panel radius">
       <h3><%= quest.title %></h3>
       <%= quest.description %><br />
       <p>Quest begins: <%= quest.start_date %> | Quest ends: <%= quest.end_date %></p>

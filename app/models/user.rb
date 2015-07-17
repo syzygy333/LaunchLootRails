@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :quests, through: :engagements
   has_many :finds
   # has_many :comments
-  # has_many :current_items through: :finds, source: item
+  has_many :current_items, through: :finds, source: :item
   # has_many :past_ownerships
   # has_many :past_items through: :past_ownerships, source: item
 
