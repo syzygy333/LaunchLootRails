@@ -57,19 +57,4 @@ feature 'user edits a quest', %{
     expect(page).to have_content(quest.title)
     expect(page).not_to have_content("Edit your Quest!")
   end
-
-  scenario "don't sign in and provide valid information" do
-    quest = FactoryGirl.create(:quest)
-
-    visit edit_quest_path(quest.id)
-
-    fill_in "Title", with: "Quest #2"
-    fill_in "Description", with: "Description for Quest #2"
-    fill_in "End date", with: "20150814"
-
-    click_button "Change it!"
-
-    expect(page).to have_content("You may not edit this quest")
-    expect(page).not_to have_content("Edit your Quest!")
-  end
 end
