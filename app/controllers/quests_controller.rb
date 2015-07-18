@@ -27,7 +27,9 @@ class QuestsController < ApplicationController
 
   def show
     @quest = Quest.find(params[:id])
-    @finds = Find.where(quest_id: @quest.id)
+    @finds = Find.where(quest_id: @quest.id).order(
+      'created_at DESC'
+    )
     @engagement = Engagement.find_by(
       user_id: current_user, quest_id: @quest.id
     )

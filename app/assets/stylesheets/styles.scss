@@ -4,6 +4,7 @@ $antiquity-color: #08298a;
 $relic-color: #ff8000;
 $find-panel-bg: #d8d8d8;
 $find-panel-border: #a4a4a4;
+$equip-panel-color: #333333;
 
 body {
   background-image: image-url("landscape1.jpg");
@@ -73,4 +74,12 @@ th .desc:after {
   font-size: 0.8em;
   margin-top: -1px;
   padding: 10px;
+}
+
+#equip {
+  background-color: $equip-panel-color;
+}
+
+#equipped {
+  height: 474px;
 }

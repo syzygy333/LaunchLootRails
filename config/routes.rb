@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :engagements, only: [:create, :destroy]
   end
   resources :items, only: [:index]
+  resources :users, only: [:show]
 end
