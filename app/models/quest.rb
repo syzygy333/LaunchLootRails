@@ -9,5 +9,9 @@ class Quest < ActiveRecord::Base
 
   paginates_per 10
   include PgSearch
-  multisearchable against: [:title, :description]
+  pg_search_scope :search,
+    :against => [:title, :description],
+    :using => {
+      :tsearch => { :prefix => true }
+    }
 end
