@@ -8,4 +8,6 @@ class Quest < ActiveRecord::Base
   validates :end_date, presence: true
 
   paginates_per 10
+  include PgSearch
+  multisearchable against: [:title, :description]
 end

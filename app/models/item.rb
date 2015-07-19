@@ -7,4 +7,7 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :rarity, presence: true
   validates :value, presence: true, numericality: { only_integer: true }
+
+  include PgSearch
+  multisearchable against: :name
 end
