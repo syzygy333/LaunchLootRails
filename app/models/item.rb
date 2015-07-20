@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => :name
+
   has_many :finds
   has_many :current_owners, through: :finds, source: :user
   has_many :past_ownerships
@@ -7,8 +10,4 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :rarity, presence: true
   validates :value, presence: true, numericality: { only_integer: true }
-
-  include PgSearch
-  multisearchable :against => :name,
-    :using => { :tsearch => { :prefix => true }}
 end
