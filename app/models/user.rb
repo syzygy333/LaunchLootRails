@@ -16,9 +16,6 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   include PgSearch
-  pg_search_scope :search,
-    :against => [:email, :first_name, :last_name],
-    :using => {
-      :tsearch => { :prefix => true }
-    }
+  multisearchable :against => [:email, :first_name, :last_name],
+    :using => { :tsearch => { :prefix => true }}
 end

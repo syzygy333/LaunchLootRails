@@ -9,9 +9,6 @@ class Item < ActiveRecord::Base
   validates :value, presence: true, numericality: { only_integer: true }
 
   include PgSearch
-  pg_search_scope :search,
-    :against => :name,
-    :using => {
-      :tsearch => { :prefix => true }
-    }
+  multisearchable :against => :name,
+    :using => { :tsearch => { :prefix => true }}
 end
