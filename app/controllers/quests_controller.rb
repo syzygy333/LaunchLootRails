@@ -19,6 +19,7 @@ class QuestsController < ApplicationController
       @engagement.quest_id = @quest.id
       @engagement.user_id = current_user.id
       @engagement.save
+      EngagementMailer.new_engagement(@engagement).deliver_now
     else
       flash[:alert] = @quest.errors.full_messages.join(".  ")
       render :new
