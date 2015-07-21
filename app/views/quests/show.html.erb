@@ -7,14 +7,18 @@
       <%= link_to "Delete Quest", quest_path(@quest), method: :delete,
         class: "tiny button alert" %>
     <!-- If a member of the quest, show the leave quest button -->
-    <% elsif (current_user && current_user.engagements.first != nil && current_user.engagements.first.quest_id == @quest.id) || (current_user && current_user.engagements.last != nil && current_user.engagements.last.quest_id == @quest.id) %>
+    <% elsif current_user &&
+      current_user.engagements.first != nil &&
+      current_user.engagements.first.quest_id == @quest.id %>
       <%= link_to "Leave Quest",
         quest_engagement_path(@quest, @engagement), method: :delete,
         class: "tiny button alert" %>
     <!-- If not a member or a leader, show the join quest button -->
-    <% else %>
+    <% elsif (current_user &&
+      current_user.engagements.first == nil) %>
       <%= link_to "Join Quest", quest_engagements_path(@quest),
         method: :post, class: "tiny button success" %>
+    <% else %>
     <% end %>
   </div>
   <%= @quest.description %><br />

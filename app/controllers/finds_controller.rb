@@ -8,7 +8,7 @@ class FindsController < ApplicationController
     if @find = Find.find_by(id: params[:id]) != nil
       @find = Find.find_by(id: params[:id])
     else
-      # if it doesn't exits, create one
+      # if it doesn't exits, create one — but how does it determine what quest it should belong to?
       @find = Find.create(find_params)
     end
   end
