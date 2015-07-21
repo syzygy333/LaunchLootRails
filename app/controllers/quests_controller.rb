@@ -58,6 +58,10 @@ class QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
     if current_user && current_user == @quest.users.first
       @quest.destroy
+      @engagement = Engagement.where(quest_id: @quest.id)
+      @engagement.each do |engagement|
+        engagement.destroy
+      end
       flash[:success] = "Quest destroyed."
       redirect_to quests_path
     else

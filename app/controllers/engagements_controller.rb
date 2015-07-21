@@ -5,6 +5,7 @@ class EngagementsController < ApplicationController
       quest_id: @quest.id, user_id: current_user.id
     )
     if @engagement.save
+      EngagementMailer.new_engagement(@engagement).deliver_now
       flash[:success] = "You have joined the quest."
       redirect_to quests_path
     else
