@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/6f5ef880-0872-0133-ff05-5a7148fc22cf/status?branch=master)![Code Climate](https://codeclimate.com/github/syzygy333/LaunchLootRails.png) ![Coverage Status](https://coveralls.io/repos/syzygy333/LaunchLootRails/badge.png)
+![Build Status](https://codeship.com/projects/6f5ef880-0872-0133-ff05-5a7148fc22cf/status?branch=master)![Code Climate](https://codeclimate.com/github/syzygy333/LaunchLootRails.png) [![Coverage Status](https://coveralls.io/repos/syzygy333/LaunchLootRails/badge.svg?branch=master&service=github)](https://coveralls.io/github/syzygy333/LaunchLootRails?branch=master)
 
 # README
 

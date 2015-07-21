@@ -14,6 +14,7 @@ feature 'User receives mail about new treasure', %{
     quest = FactoryGirl.create(:quest)
     Engagement.create!(quest: quest, user: user)
     new_user = FactoryGirl.create(:user)
+    duration = (quest.end_date.day - quest.start_date.day)
 
     visit new_user_session_path
 
@@ -26,7 +27,7 @@ feature 'User receives mail about new treasure', %{
 
     click_link "Join Quest"
 
-    expect(ActionMailer::Base.deliveries.count).to eql(1)
+    expect(ActionMailer::Base.deliveries.count).to eql(duration)
   end
 
   scenario "user creates a quest and receives email about new treasure" do
@@ -48,6 +49,9 @@ feature 'User receives mail about new treasure', %{
     fill_in "End date", with: "20150814"
 
     click_button "Embark!"
-    expect(ActionMailer::Base.deliveries.count).to eql(1)
+
+    duration = (quest.end_date.day - quest.start_date.day)
+
+    expect(ActionMailer::Base.deliveries.count).to eql(duration)
   end
 end
