@@ -15,4 +15,10 @@ FactoryGirl.define do
     start_date { Date.today }
     end_date { Faker::Date.forward(10) }
   end
+
+  factory :item do
+    name { Faker::Lorem.word }
+    rarity "relic"
+    value 1000
+  end
 end

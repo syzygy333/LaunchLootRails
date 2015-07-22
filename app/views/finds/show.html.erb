@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-12 columns">&nbsp;</div>
+  <div class="small-12 columns text-center">
+    <h1>For your bravery, you may share in the spoils.</h1>
+  </div>
+  <div class="small-12 columns text-center">
+    <%= image_tag("chest_open.gif") %>
+  </div>
+  <div class="small-12 columns">&nbsp;</div>
+  <div class="small-12 columns text-center">
+    <% if @find.item.rarity == "ordinary" %>
+      <h2>You found the
+        <h1 id="ordinary"><%= @find.item.name %></h1></h2>
+    <% elsif @find.item.rarity == "heirloom" %>
+      <h2>You found the
+        <h1 id="heirloom"><%= @find.item.name %></h1></h2>
+    <% elsif @find.item.rarity == "antiquity" %>
+      <h2>You found the
+        <h1 id="antiquity"><%= @find.item.name %></h1></h2>
+    <% else %>
+      <h2>You found the
+        <h1 id="relic"><%= @find.item.name %></h1></h2>
+    <% end %>
+  </div>
+</div>

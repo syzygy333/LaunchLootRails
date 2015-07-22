@@ -1,6 +1,6 @@
 class FindsController < ApplicationController
-  def create
-    @find = Find.new(find_params)
+  def show
+    @find = Find.find_by(id: params[:id])
   end
 
   private
