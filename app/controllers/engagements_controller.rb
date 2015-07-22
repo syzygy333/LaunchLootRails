@@ -20,7 +20,7 @@ class EngagementsController < ApplicationController
             user_id: user.id
           )
           EngagementMailer.new_engagement(
-            engagement, item_roller.id
+            engagement, engagement.id
           ).deliver_later
         end
       end
