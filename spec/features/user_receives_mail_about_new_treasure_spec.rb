@@ -8,7 +8,8 @@ feature 'User receives mail about new treasure', %{
   # Acceptance criteria:
   # [X] User is sent email about quest activity
 
-  scenario "user joins an existing quest and receives email about new treasure" do
+  scenario "user joins an existing quest and receives email about
+    new treasure" do
     ActionMailer::Base.deliveries.clear
     quest = FactoryGirl.create(:quest)
     4.times do
@@ -33,7 +34,8 @@ feature 'User receives mail about new treasure', %{
     expect(ActionMailer::Base.deliveries.count).to eql(5)
   end
 
-  scenario "user creates a quest and receives email about new treasure" do
+  scenario "user creates a quest and receives email about new
+    treasure" do
     ActionMailer::Base.deliveries.clear
     user = FactoryGirl.create(:user)
 

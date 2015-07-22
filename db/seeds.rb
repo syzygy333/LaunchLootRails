@@ -24,11 +24,6 @@ end
     #{descriptor2[0].sample.titleize}", rarity: "antiquity", value: 500)
 end
 
-# 25.times do
-#   Item.create(name: relic_name, rarity: relic, value: 1000 )
-# end
-
-
 15.times do
   quest = Quest.create!(
     title: Faker::Lorem.sentence(3),

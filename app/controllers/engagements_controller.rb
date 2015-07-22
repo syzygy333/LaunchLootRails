@@ -19,7 +19,7 @@ class EngagementsController < ApplicationController
             quest_id: @quest.id, item_id: item_roller.id,
             user_id: user.id
           )
-          mail = EngagementMailer.new_engagement(
+          EngagementMailer.new_engagement(
             engagement, item_roller
           ).deliver_later
         end
