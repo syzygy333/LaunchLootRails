@@ -5,6 +5,7 @@ $relic-color: #ff8000;
 $find-panel-bg: #d8d8d8;
 $find-panel-border: #a4a4a4;
 $equip-panel-color: #333333;
+$header-color: #008cba;
 
 body {
   background-image: image-url("landscape1.jpg");
@@ -14,6 +15,7 @@ body {
 
 h1 {
   font-weight: bold;
+  color: $header-color;
 }
 
 a {
