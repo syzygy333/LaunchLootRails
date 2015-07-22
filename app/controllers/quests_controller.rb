@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   def index
-    @quests = Quest.order(:created_at).page params[:page]
+    @quests = Quest.order(created_at: :desc).page params[:page]
   end
 
   def new
@@ -9,17 +9,16 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new(quest_params)
-    @engagement = Engagement.new
     if current_user == nil
       flash[:alert] = "You must be signed in to create a quest."
       render :new
     elsif @quest.save
       flash[:success] = "It shall be so."
-      redirect_to quests_path
-      @engagement.quest_id = @quest.id
-      @engagement.user_id = current_user.id
+      @engagement = Engagement.new(
+        quest_id: @quest.id, user_id: current_user.id
+      )
       @engagement.save
-      EngagementMailer.new_engagement(@engagement).deliver_now
+      redirect_to quests_path
     else
       flash[:alert] = @quest.errors.full_messages.join(".  ")
       render :new

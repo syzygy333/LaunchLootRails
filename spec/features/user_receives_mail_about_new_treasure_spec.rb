@@ -10,9 +10,13 @@ feature 'User receives mail about new treasure', %{
 
   scenario "user joins an existing quest and receives email about new treasure" do
     ActionMailer::Base.deliveries.clear
-    user = FactoryGirl.create(:user)
     quest = FactoryGirl.create(:quest)
-    Engagement.create!(quest: quest, user: user)
+    4.times do
+      Engagement.create!(
+        quest: quest, user: FactoryGirl.create(:user)
+      )
+    end
+
     new_user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -25,8 +29,7 @@ feature 'User receives mail about new treasure', %{
     visit quest_path(quest.id)
 
     click_link "Join Quest"
-
-    expect(ActionMailer::Base.deliveries.count).to eql(1)
+    expect(ActionMailer::Base.deliveries.count).to eql(5)
   end
 
   scenario "user creates a quest and receives email about new treasure" do
@@ -49,6 +52,6 @@ feature 'User receives mail about new treasure', %{
 
     click_button "Embark!"
 
-    expect(ActionMailer::Base.deliveries.count).to eql(1)
+    expect(ActionMailer::Base.deliveries.count).to eql(0)
   end
 end
