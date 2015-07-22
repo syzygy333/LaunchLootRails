@@ -24,7 +24,11 @@
   <%= @quest.description %><br />
   <p>Quest begins: <%= @quest.start_date %> | Quest ends:
     <%= @quest.end_date %></p>
-  <p>Quest Leader: <%= link_to "#{@quest.users.first.first_name} #{@quest.users.first.last_name}", user_path(@quest.users.first.id) %></p>
+  <p>Quest Leader: <%= link_to "#{@quest.users.first.first_name}
+    #{@quest.users.first.last_name}",
+    user_path(@quest.users.first.id) %>
+    <span class="right">Party Size:
+    <%= @quest.users.count %></span></p>
   <% @finds.each do |find| %>
   <div class="find-panel radius">
     <%= link_to "#{find.user.first_name} #{find.user.last_name}",
