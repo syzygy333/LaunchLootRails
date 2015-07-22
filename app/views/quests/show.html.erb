@@ -27,15 +27,20 @@
   <p>Quest Leader: <%= link_to "#{@quest.users.first.first_name} #{@quest.users.first.last_name}", user_path(@quest.users.first.id) %></p>
   <% @finds.each do |find| %>
   <div class="find-panel radius">
-    <%= find.user.first_name %> <%= find.user.last_name %> found the
+    <%= link_to "#{find.user.first_name} #{find.user.last_name}",
+      user_path(find.user.id) %> found the
     <% if find.item.rarity == "ordinary" %>
-      <b id="ordinary"><%= find.item.name %></b>
+      <b id="ordinary"><%= link_to "#{find.item.name}",
+        find_path(find.id) %></b>
     <% elsif find.item.rarity == "heirloom" %>
-      <b id="heirloom"><%= find.item.name %></b>
+      <b id="heirloom"><%= link_to "#{find.item.name}",
+        find_path(find.id) %></b>
     <% elsif find.item.rarity == "antiquity" %>
-      <b id="antiquity"><%= find.item.name %></b>
+      <b id="antiquity"><%= link_to "#{find.item.name}",
+        find_path(find.id) %></b>
     <% else %>
-      <b id="relic"><%= find.item.name %></b>
+      <b id="relic"><%= link_to "#{find.item.name}",
+        find_path(find.id) %></b>
     <% end %>
     <i class="right"><%= find.created_at.to_date %>,
       <%= find.created_at.strftime("%I:%M%p") %></i>
