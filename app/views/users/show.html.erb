@@ -20,13 +20,17 @@
     <% @finds.each do |find| %>
     <div class="find-panel radius">
       <% if find.item.rarity == "ordinary" %>
-        <b id="ordinary"><%= find.item.name %></b>
+        <b id="ordinary"><%= link_to "#{find.item.name}",
+          find_path(find.id) %></b>
       <% elsif find.item.rarity == "heirloom" %>
-        <b id="heirloom"><%= find.item.name %></b>
+        <b id="heirloom"><%= link_to "#{find.item.name}",
+          find_path(find.id) %></b>
       <% elsif find.item.rarity == "antiquity" %>
-        <b id="antiquity"><%= find.item.name %></b>
+        <b id="antiquity"><%= link_to "#{find.item.name}",
+          find_path(find.id) %></b>
       <% else %>
-        <b id="relic"><%= find.item.name %></b>
+        <b id="relic"><%= link_to "#{find.item.name}",
+          find_path(find.id) %></b>
       <% end %>
       <i class="right"><%= find.created_at.to_date %>,
         <%= find.created_at.strftime("%I:%M%p") %></i>
