@@ -15,12 +15,12 @@ class EngagementsController < ApplicationController
             user_id: user.id, quest_id: @quest.id
           )
           item_roller = random_item
-          Find.create!(
+          find = Find.create!(
             quest_id: @quest.id, item_id: item_roller.id,
             user_id: user.id
           )
           EngagementMailer.new_engagement(
-            engagement, engagement.id
+            engagement, find.id
           ).deliver_later
         end
       end
