@@ -1,6 +1,6 @@
 class EngagementsController < ApplicationController
   def random_item
-    rand(475) + 1
+    Item.all.sample
   end
 
   def create
@@ -16,7 +16,7 @@ class EngagementsController < ApplicationController
           )
           item_roller = random_item
           Find.create!(
-            quest_id: @quest.id, item_id: item_roller,
+            quest_id: @quest.id, item_id: item_roller.id,
             user_id: user.id
           )
           mail = EngagementMailer.new_engagement(

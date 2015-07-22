@@ -16,6 +16,7 @@ feature 'User receives mail about new treasure', %{
         quest: quest, user: FactoryGirl.create(:user)
       )
     end
+    Item.create(name: "thing", rarity: "relic", value: 1000)
 
     new_user = FactoryGirl.create(:user)
 
