@@ -10,11 +10,14 @@
       <% if item.equipped? %>
       <div class="find-panel radius">
         <% if item.rarity == "ordinary" %>
-          <b id="ordinary"><%= item.name %></b>
+          <b id="ordinary"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+            class: "tiny button secondary right" %>
         <% elsif item.rarity == "heirloom" %>
-          <b id="heirloom"><%= item.name %></b>
+          <b id="heirloom"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+            class: "tiny button secondary right" %>
         <% elsif item.rarity == "antiquity" %>
-          <b id="antiquity"><%= item.name %></b>
+          <b id="antiquity"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+            class: "tiny button secondary right" %>
         <% else %>
           <b id="relic"><%= item.name %></b>
         <% end %>

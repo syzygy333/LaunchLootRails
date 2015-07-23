@@ -14,7 +14,10 @@ class ItemsController < ApplicationController
       end
     end
     if current_user && current_user.current_items.include?(@item)
-      if @equipped_item_count < 8
+      if @item.equipped? == true
+        @item.update(equipped?: false)
+        redirect_to user_path(current_user.id)
+      elsif (@item.equipped? == false) && (@equipped_item_count < 8)
         @item.update(equipped?: true)
         flash[:success] = "Item equipped."
         redirect_to user_path(current_user.id)
