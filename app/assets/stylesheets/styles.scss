@@ -56,6 +56,10 @@ th .desc:after {
   content: "  ⬇️";
 }
 
+#shadow-text {
+  text-shadow: -3px 2px 5px $junk-color;
+}
+
 #ordinary {
   color: $junk-color;
 }

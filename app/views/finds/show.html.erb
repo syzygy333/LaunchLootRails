@@ -1,13 +1,13 @@
 <div class="row">
   <div class="small-12 columns">&nbsp;</div>
   <div class="small-12 columns text-center">
-    <h1>For your bravery, you may share in the spoils.</h1>
+    <h1>For your bravery, you share in the spoils.</h1>
   </div>
   <div class="small-12 columns text-center">
     <%= image_tag("chest_open.gif") %>
   </div>
   <div class="small-12 columns">&nbsp;</div>
-  <div class="small-12 columns text-center">
+  <div class="small-12 columns text-center" id="shadow-text">
     <% if @find.item.rarity == "ordinary" %>
       <h2>You found the
         <h1 id="ordinary"><%= @find.item.name %></h1></h2>
