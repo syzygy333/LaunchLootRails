@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723182210) do
+ActiveRecord::Schema.define(version: 20150723184351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,7 @@ ActiveRecord::Schema.define(version: 20150723182210) do
     t.string  "name",                      null: false
     t.string  "rarity",                    null: false
     t.integer "value",                     null: false
-    t.boolean "equipped?", default: false, null: false
-    t.integer "priority"
+    t.boolean "equipped?", default: false
   end
 
   create_table "quests", force: :cascade do |t|

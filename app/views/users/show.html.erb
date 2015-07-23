@@ -6,35 +6,42 @@
   <div class="small-8 columns panel radius" id="equipped">
     <h3 class="text-center"><strong>Equipped Items</strong></h2>
       <br />
-    <p><strong>Head: </strong><%=  %></p>
-    <p><strong>Neck: </strong><%=  %></p>
-    <p><strong>Torso: </strong><%=  %></p>
-    <p><strong>Left Hand: </strong><%=  %></p>
-    <p><strong>Right Hand: </strong><%=  %></p>
-    <p><strong>Waist: </strong><%=  %></p>
-    <p><strong>Legs: </strong><%=  %></p>
-    <p><strong>Feet: </strong><%=  %></p>
+    <% @items.each do |item| %>
+      <% if item.equipped? %>
+      <div class="find-panel radius">
+        <% if item.rarity == "ordinary" %>
+          <b id="ordinary"><%= item.name %></b>
+        <% elsif item.rarity == "heirloom" %>
+          <b id="heirloom"><%= item.name %></b>
+        <% elsif item.rarity == "antiquity" %>
+          <b id="antiquity"><%= item.name %></b>
+        <% else %>
+          <b id="relic"><%= item.name %></b>
+        <% end %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="small-12 columns panel radius">
-    <h3 class="text-center"><strong>Found Items</strong></h2>
-    <% @finds.each do |find| %>
-    <div class="find-panel radius">
-      <% if find.item.rarity == "ordinary" %>
-        <b id="ordinary"><%= link_to "#{find.item.name}",
-          find_path(find.id) %></b>
-      <% elsif find.item.rarity == "heirloom" %>
-        <b id="heirloom"><%= link_to "#{find.item.name}",
-          find_path(find.id) %></b>
-      <% elsif find.item.rarity == "antiquity" %>
-        <b id="antiquity"><%= link_to "#{find.item.name}",
-          find_path(find.id) %></b>
-      <% else %>
-        <b id="relic"><%= link_to "#{find.item.name}",
-          find_path(find.id) %></b>
+    <h3 class="text-center"><strong>Unequipped Items</strong></h2>
+    <% @items.each do |item| %>
+      <% if item.equipped? == false %>
+        <div class="find-panel radius">
+          <% if item.rarity == "ordinary" %>
+            <b id="ordinary"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+              class: "tiny button success right" %>
+          <% elsif item.rarity == "heirloom" %>
+            <b id="heirloom"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+              class: "tiny button success right" %>
+          <% elsif item.rarity == "antiquity" %>
+            <b id="antiquity"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+              class: "tiny button success right" %>
+          <% else %>
+            <b id="relic"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+              class: "tiny button success right" %>
+          <% end %>
+        </div>
       <% end %>
-      <i class="right"><%= find.created_at.to_date %>,
-        <%= find.created_at.strftime("%I:%M%p") %></i>
-    </div>
     <% end %>
   </div>
 </div>
