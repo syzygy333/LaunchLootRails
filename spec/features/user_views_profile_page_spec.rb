@@ -23,6 +23,7 @@ feature 'user views profile page', %{
 
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
-    expect(page).to have_content("Found Items")
+    expect(page).to have_content("Unequipped Items")
+    expect(page).to have_content("Equipped Items")
   end
 end
