@@ -3,12 +3,16 @@
   <div class="small-4 columns panel radius text-center">
     <%= image_tag("avatar1.png") %>
   </div>
-  <div class="small-8 columns panel radius" id="equipped">
+  <div class="small-8 columns panel radius" id="equipped"
+    ondrop="drop(event)" ondragover="allowDrop(event)">
     <h3 class="text-center"><strong>Equipped Items</strong></h2>
       <br />
+    <% id_num = 1 %>
     <% @items.each do |item| %>
       <% if item.equipped? %>
-      <div class="find-panel radius">
+        <div class="find-panel radius equipped" draggable="true"
+          id="<%= id_num %>" ondragstart="drag(event)">
+        <% id_num += 1 %>
         <% if item.rarity == "ordinary" %>
           <b id="ordinary"><%= item.name %></b>
           <%= link_to "Unequip", item_path(item), method: :patch,
@@ -25,14 +29,19 @@
           <b id="relic"><%= item.name %></b>
         <% end %>
       </div>
+      <% else %>
       <% end %>
     <% end %>
   </div>
-  <div class="small-12 columns panel radius">
+  <div class="small-12 columns panel radius" ondrop="drop(event)"
+    ondragover="allowDrop(event)">
     <h3 class="text-center"><strong>Unequipped Items</strong></h2>
+    <% id_num = 1 %>
     <% @items.each do |item| %>
       <% if item.equipped? == false %>
-        <div class="find-panel radius">
+        <div class="find-panel radius unequipped" draggable="true"
+          id="<%= id_num %>" ondragstart="drag(event)">
+        <% id_num += 1 %>
           <% if item.rarity == "ordinary" %>
             <b id="ordinary"><%= item.name %></b>
             <%= link_to "Equip", item_path(item), method: :patch,

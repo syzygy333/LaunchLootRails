@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require drag_equip
 //= require foundation
 //= require_tree .
 

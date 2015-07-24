@@ -86,10 +86,21 @@ th .desc:after {
   padding: 10px;
 }
 
+.placeholder-find-panel {
+  background-color: $find-panel-bg;
+  border-color: $find-panel-border;
+  border-style: dashed;
+  border-width: 1px;
+  font-size: 0.8em;
+  height: 42.2222px;
+  margin-top: -1px;
+}
+
 .find-panel .button {
   height: 20px;
   margin: 0;
   padding-top: 4px;
+  width: 81.5781px;
 }
 
 #equip {
