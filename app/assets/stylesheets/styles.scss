@@ -6,11 +6,12 @@ $find-panel-bg: #d8d8d8;
 $find-panel-border: #a4a4a4;
 $equip-panel-color: #333333;
 $header-color: #008cba;
+$footer-text-color: #ffffff;
 
 body {
   background-image: image-url("landscape1.jpg");
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom;
 }
 
 h1 {
@@ -98,4 +99,25 @@ th .desc:after {
 
 #equipped {
   height: 474px;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -90px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.footer, .page-wrap:after {
+  height: 90px;
+}
+
+.footer {
+  background-color: $header-color;
+  color: $footer-text-color;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px 30px;
 }

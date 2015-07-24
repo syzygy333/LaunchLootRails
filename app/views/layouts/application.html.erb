@@ -44,11 +44,14 @@
     </div>
   <%- end -%>
 
-  <div class="row">
+  <div class="row page-wrap">
     <div class="small-12 columns">
       <%= yield %>
     </div>
   </div>
+    <div class="small-12 columns footer">
+      <footer>LaunchLoot developed at <%= image_tag("launchlogo.png") %> by Brian Hogue © 2015 &nbsp; | &nbsp; Check out the repo on <%= link_to "GitHub", "https://github.com/syzygy333/LaunchLootRails" %></footer>
+    </div>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
