@@ -27,9 +27,10 @@
             class: "tiny button secondary right" %>
         <% else %>
           <b id="relic"><%= item.name %></b>
+          <%= link_to "Unequip", item_path(item), method: :patch,
+            class: "tiny button secondary right" %>
         <% end %>
       </div>
-      <% else %>
       <% end %>
     <% end %>
   </div>
