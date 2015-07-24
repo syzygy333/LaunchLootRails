@@ -10,13 +10,16 @@
       <% if item.equipped? %>
       <div class="find-panel radius">
         <% if item.rarity == "ordinary" %>
-          <b id="ordinary"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+          <b id="ordinary"><%= item.name %></b>
+          <%= link_to "Unequip", item_path(item), method: :patch,
             class: "tiny button secondary right" %>
         <% elsif item.rarity == "heirloom" %>
-          <b id="heirloom"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+          <b id="heirloom"><%= item.name %></b>
+          <%= link_to "Unequip", item_path(item), method: :patch,
             class: "tiny button secondary right" %>
         <% elsif item.rarity == "antiquity" %>
-          <b id="antiquity"><%= item.name %></b> <%= link_to "Unequip", item_path(item), method: :patch,
+          <b id="antiquity"><%= item.name %></b>
+          <%= link_to "Unequip", item_path(item), method: :patch,
             class: "tiny button secondary right" %>
         <% else %>
           <b id="relic"><%= item.name %></b>
@@ -31,16 +34,20 @@
       <% if item.equipped? == false %>
         <div class="find-panel radius">
           <% if item.rarity == "ordinary" %>
-            <b id="ordinary"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+            <b id="ordinary"><%= item.name %></b>
+            <%= link_to "Equip", item_path(item), method: :patch,
               class: "tiny button success right" %>
           <% elsif item.rarity == "heirloom" %>
-            <b id="heirloom"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+            <b id="heirloom"><%= item.name %></b>
+            <%= link_to "Equip", item_path(item), method: :patch,
               class: "tiny button success right" %>
           <% elsif item.rarity == "antiquity" %>
-            <b id="antiquity"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+            <b id="antiquity"><%= item.name %></b>
+            <%= link_to "Equip", item_path(item), method: :patch,
               class: "tiny button success right" %>
           <% else %>
-            <b id="relic"><%= item.name %></b> <%= link_to "Equip", item_path(item), method: :patch,
+            <b id="relic"><%= item.name %></b>
+            <%= link_to "Equip", item_path(item), method: :patch,
               class: "tiny button success right" %>
           <% end %>
         </div>

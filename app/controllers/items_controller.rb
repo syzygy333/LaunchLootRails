@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
     if current_user && current_user.current_items.include?(@item)
       if @item.equipped? == true
         @item.update(equipped?: false)
+        flash[:success] = "Item unequipped."
         redirect_to user_path(current_user.id)
       elsif (@item.equipped? == false) && (@equipped_item_count < 8)
         @item.update(equipped?: true)
